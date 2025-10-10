@@ -13,12 +13,13 @@ def chat():
     user_message = data.get("message")
 
     response = client.chat.completions.create(
-        model="gpt-4.1",
-        messages=[{"role": "user", "content": user_message}],
-    )
+    model="gpt-4o",
+    messages=[{"role": "user", "content": user_message}],
+)
 
     answer = response.choices[0].message.content
     return jsonify({"reply": answer})
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=10000)
+
